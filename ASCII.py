@@ -304,9 +304,11 @@
 #     except Exception as e:
 #         st.error(f"Error: {e}")
 
-import streamlit as st
+  
+  import streamlit as st
 from pyfiglet import Figlet
 import random
+import html  # ✅ for escaping special characters
 
 st.title("🎨 PyFiglet ASCII Art Generator")
 
@@ -331,7 +333,10 @@ if string:
                 art = x.renderText(string)
 
                 st.write(f"Font used: **{random_font}**")
-                st.markdown(f"<pre style='font-family: monospace; font-size:14px;'>{art}</pre>", unsafe_allow_html=True)
+
+                # ✅ Escape ASCII art so HTML doesn’t break
+                safe_art = html.escape(art)
+                st.markdown(f"<pre style='font-family: monospace; font-size:14px;'>{safe_art}</pre>", unsafe_allow_html=True)
 
                 # Download button
                 st.download_button(
@@ -349,7 +354,8 @@ if string:
                 x.setFont(font=Select_font)
                 art = x.renderText(string)
 
-                st.markdown(f"<pre style='font-family: monospace; font-size:14px;'>{art}</pre>", unsafe_allow_html=True)
+                safe_art = html.escape(art)
+                st.markdown(f"<pre style='font-family: monospace; font-size:14px;'>{safe_art}</pre>", unsafe_allow_html=True)
 
                 # Download button
                 st.download_button(
@@ -361,6 +367,7 @@ if string:
 
     except Exception as e:
         st.error(f"Error: {e}")
+
 
  
 
