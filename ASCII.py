@@ -305,7 +305,7 @@
 #         st.error(f"Error: {e}")
 
   
-  import streamlit as st
+import streamlit as st
 from pyfiglet import Figlet
 import random
 import html  # ✅ for escaping special characters
@@ -370,5 +370,6 @@ if string:
 
 
  
+
 
 
