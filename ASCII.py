@@ -190,6 +190,62 @@
 #     except Exception as e:
 #         st.error(f"Error: {e}")
 
+# import streamlit as st
+# from pyfiglet import Figlet
+# import random
+
+# st.title("🎨 PyFiglet ASCII Art Generator")
+
+# string = st.text_input("Enter Name/Text:")
+
+# # Create Figlet instance
+# x = Figlet()
+# z = x.getFonts()
+
+# choice = st.radio(
+#     "Choose how to generate ASCII art:",
+#     ["Random Font", "Select Font of your own Choice"]
+# )
+
+# if string: 
+#     try:
+#         # Option 1: Random Font
+#         if choice == "Random Font":
+#             if st.button("Generate Random"):
+#                 random_font = random.choice(z)
+#                 x.setFont(font=random_font)
+#                 art = x.renderText(string)
+
+#                 st.write(f"Font used: **{random_font}**")
+#                 st.text(art)
+
+#                 # Download button
+#                 st.download_button(
+#                     label="Download ASCII Art",
+#                     data=art,
+#                     file_name=f"{string}_{random_font}.txt",
+#                     mime="text/plain"
+#                 )
+
+#         # Option 2: Select Font
+#         elif choice == "Select Font of your own Choice":
+#             Select_font = st.selectbox("Pick a font:", z)
+
+#             if st.button("Generate Selected"):
+#                 x.setFont(font=Select_font)
+#                 art = x.renderText(string)
+#                 st.text(art)
+
+#                 # Download button
+#                 st.download_button(
+#                     label="Download ASCII Art",
+#                     data=art,
+#                     file_name=f"{string}_{Select_font}.txt",
+#                     mime="text/plain"
+#                 )
+
+#     except Exception as e:
+#         st.error(f"Error: {e}")
 import streamlit as st
 from pyfiglet import Figlet
 import random
@@ -217,7 +273,7 @@ if string:
                 art = x.renderText(string)
 
                 st.write(f"Font used: **{random_font}**")
-                st.text(art)
+                st.code(art, language="text")  # ✅ FIXED: preserves ASCII alignment
 
                 # Download button
                 st.download_button(
@@ -234,7 +290,7 @@ if string:
             if st.button("Generate Selected"):
                 x.setFont(font=Select_font)
                 art = x.renderText(string)
-                st.text(art)
+                st.code(art, language="text")  # ✅ FIXED
 
                 # Download button
                 st.download_button(
@@ -247,4 +303,6 @@ if string:
     except Exception as e:
         st.error(f"Error: {e}")
 
+
  
+
