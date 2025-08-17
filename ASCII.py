@@ -251,7 +251,7 @@ import streamlit as st
 from pyfiglet import Figlet
 import random
 
-st.title("🎨 PyFiglet ASCII Art Generator")
+st.title("🎨 ASCII Art Generator")
 
 string = st.text_input("Enter Name/Text:")
 
@@ -308,6 +308,7 @@ if string:
  
 
  
+
 
 
 
