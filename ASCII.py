@@ -245,7 +245,7 @@
 #                 )
 
 #     except Exception as e:
-        st.error(f"Error: {e}")
+  #      st.error(f"Error: {e}")
 
 import streamlit as st
 from pyfiglet import Figlet
@@ -308,6 +308,7 @@ if string:
  
 
  
+
 
 
 
